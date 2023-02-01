@@ -1,17 +1,23 @@
+// initializing all of the required files for the code
 const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 const generateHTML = require('./src/HTMLgenerator.js');
 
+// initializing the dependencies
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+// initializing the array of all the team members
 teamMembersArray = [];
+
 
 function startApp () {
 
+    // first asking for the details of the manager
     createManager();
 
+    // asking which employee would are adding, and then calling the relevant function to ask more information
     function makeTeam () {
         inquirer.prompt(
             [
@@ -36,6 +42,7 @@ function startApp () {
             });
     }
 
+    //using inquirer to ask for the relavent information for the manager card
     function createManager () {
         inquirer.prompt(
             [
@@ -68,6 +75,7 @@ function startApp () {
         );
     }
 
+    //using inquirer to ask for the relavent information for the engineer card
     function createEngineer () {
         inquirer.prompt(
             [
@@ -100,6 +108,7 @@ function startApp () {
         );
     }
 
+    //using inquirer to ask for the relavent information for the intern card
     function createIntern () {
         inquirer.prompt(
             [
@@ -132,9 +141,10 @@ function startApp () {
         );
     }
     
+    //this function is called when you select team is full, and then called the generateHTML file which is located in SRC to generate the index.html file
     function buildHTML () {
         fs.writeFileSync('./dist/index.html', generateHTML(teamMembersArray));
-        console.log('Your HTML and CSS files have been generated and are located in the dist/ directory');
+        console.log('Your HTML file have been generated and are located in the dist/ directory');
     }
 }
 

@@ -1,5 +1,5 @@
 const generateTeam = team => {
-
+    // generating the card for the manager
     const generateManager = manager => {
         return `
 <div class="card w-25 my-5 mx-4 shadow-lg rounded">
@@ -17,7 +17,7 @@ const generateTeam = team => {
 </div>
         `;
     };
-
+    // generating the card for the engineer
     const generateEngineer = engineer => {
         return `
 <div class="card w-25 mx-4 my-5 shadow-lg rounded">
@@ -35,7 +35,7 @@ const generateTeam = team => {
 </div>
         `;
     };
-
+    // generating the card for the intern
     const generateIntern = intern => {
         return `
 <div class="card w-25 mx-4 my-5 shadow-lg rounded">
@@ -54,26 +54,18 @@ const generateTeam = team => {
         `;
     };
 
-    const html = [];
+    const html = []; // initializing the html array
 
-    html.push(team
-        .filter(employee => employee.getRole() === "Manager")
-        .map(manager => generateManager(manager))
+    html.push(team.filter(employee => employee.getRole() == "Manager").map(manager => generateManager(manager)) //adding all the managers to the html array
     );
-    html.push(team
-        .filter(employee => employee.getRole() === "Engineer")
-        .map(engineer => generateEngineer(engineer))
-        .join("")
+    html.push(team.filter(employee => employee.getRole() == "Engineer").map(engineer => generateEngineer(engineer)).join("") //adding all the engineers to the html array
     );
-    html.push(team
-        .filter(employee => employee.getRole() === "Intern")
-        .map(intern => generateIntern(intern))
-        .join("")
+    html.push(team.filter(employee => employee.getRole() == "Intern").map(intern => generateIntern(intern)).join("") //adding all the interns to the html array
     );
 
     return html.join("");
 }
-
+//this is exporting the full html file as 'team'
 module.exports = team => {
 
     return `
