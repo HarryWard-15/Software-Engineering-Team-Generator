@@ -92,7 +92,7 @@ node index.js
 ## Questions
 
 Have questions about this project?\
-GitHub: https://github.com/Harry-Ward15\
+GitHub: https://github.com/Harry-Ward15 \
 Email: hward.1508@gmail.com
 
 ## Credits
